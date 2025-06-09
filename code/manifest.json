@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "CF_problem_tracker",
+  "version": "1.0",
+  "author": "Prahasith Pasnoor",
+  "description": "Chrome Exension to bookmark problems on codeforces",
+  "permissions": [
+    "storage","tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://codeforces.com/problemset/problem/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources" : [
+    {
+      "resources": [
+        "assets/bookmark.png",
+        "assets/delete.png",
+        "assets/edit.png",
+        "assets/play.png",
+        "assets/save.png"
+      ],
+      "matches" : ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/ext-icon.png",
+      "24": "assets/ext-icon.png",
+      "32": "assets/ext-icon.png"
+    },
+    "default_popup": "popup.html",
+    "default_title": "CF_problem_tracker"
+  }
+}
